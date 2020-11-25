@@ -29,12 +29,12 @@ return [
 ];
 ```
 
-Register the config directory on your `composer.json` file as below:
+Register the config directory on your module `composer.json` file as below:
 
 ```json
 {
     "extra": {
-        "iq-config": "iqomp/config/"
+        "iqomp/config": "iqomp/config/"
     }
 }
 ```
@@ -80,6 +80,21 @@ Return string enum label.
 
 Convert the enum to json_encode ready parameter.
 
+## Unit Test
+
+Run below script to run unit test:
+
+```bash
+composer test
+```
+
+## Linter
+
+Run below script to run psr-12 linter:
+
+```bash
+composer lint
+```
 
 ## TODO
 

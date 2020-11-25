@@ -3,7 +3,7 @@
     "description": "Static enum provider",
     "type": "library",
     "license": "MIT",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "authors": [
         {
             "name": "Iqbal Fauzi",
@@ -14,7 +14,7 @@
         "iqomp/config": "^1.1"
     },
     "extra": {
-        "iq-config": "iqomp/config/"
+        "iqomp/config": "iqomp/config/"
     },
     "autoload": {
         "psr-4": {
