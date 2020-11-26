@@ -3,7 +3,7 @@
     "description": "Static enum provider",
     "type": "library",
     "license": "MIT",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "authors": [
         {
             "name": "Iqbal Fauzi",
@@ -14,7 +14,8 @@
         "iqomp/config": "^1.1"
     },
     "extra": {
-        "iqomp/config": "iqomp/config/"
+        "iqomp/config": "iqomp/config/",
+        "iqomp/locale": "iqomp/locale/"
     },
     "autoload": {
         "psr-4": {
@@ -28,5 +29,8 @@
     "scripts": {
         "test": "./vendor/bin/phpunit tests",
         "lint": "./vendor/bin/phpcs --standard=PSR12 src"
+    },
+    "suggest": {
+        "iqomp/locale": "Allow enum to be translated to id-ID or en-US"
     }
 }

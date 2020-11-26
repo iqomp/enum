@@ -39,6 +39,36 @@ Register the config directory on your module `composer.json` file as below:
 }
 ```
 
+## Translation
+
+If you want the enum label to be translated, make sure to install module
+[iqomp/locale](https://github.com/iqomp/locale). Add new translation on your
+module directory with domain `enum.[enum-name]`. Register the translation in
+your `composer.json` file as below:
+
+```json
+{
+    "extra": {
+        "iqomp/locale": "locale/"
+    }
+}
+```
+
+And create translation domain with name `enum.[enum-name].php` under folder
+`locale/`:
+
+```php
+<?php
+// enum.gender.php
+
+return [
+    'Unknown'    => 'Unknown',
+    'Female'     => 'Female',
+    'Male'       => 'Male',
+    'Non-Binary' => 'Non Binary'
+];
+```
+
 ## Usage
 
 Use class `Iqomp\Enum\Enum` to create enum object with specified value.

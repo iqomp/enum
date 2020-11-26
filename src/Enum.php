@@ -9,6 +9,7 @@
 namespace Iqomp\Enum;
 
 use Iqomp\Config\Fetcher as Config;
+use Iqomp\Locale\Locale;
 
 class Enum implements \JsonSerializable
 {
@@ -42,6 +43,10 @@ class Enum implements \JsonSerializable
 
         $this->value = $value;
         $this->label = $options[$value] ?? null;
+
+        if ($this->label && class_exists('Iqomp\\Locale\\Locale')) {
+            $this->label = Locale::translate($this->label, [], 'enum.' . $name);
+        }
     }
 
     public function __get($name)
