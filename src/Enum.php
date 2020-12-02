@@ -3,7 +3,7 @@
 /**
  * Enum object
  * @package iqcomp/enum
- * @version 0.0.1
+ * @version 1.2.0
  */
 
 namespace Iqomp\Enum;
@@ -22,7 +22,7 @@ class Enum implements \JsonSerializable
         $options = Config::get('enum', 'enums', $name);
 
         if (!$options) {
-            return;
+            throw new EnumNotFoundException('Selected enum not found');
         }
 
         $this->options = $options;

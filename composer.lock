@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8910ebb08e5fba157d7962587296be0f",
+    "content-hash": "bb04be2ae0d0c73a5b77f3dff79023ed",
     "packages": [
         {
             "name": "iqomp/config",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/iqomp/config.git",
-                "reference": "246de374d8239b015a3f8f09795076449d39ad54"
+                "reference": "88586d460273301eeafff9045e785165558ec898"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/iqomp/config/zipball/246de374d8239b015a3f8f09795076449d39ad54",
-                "reference": "246de374d8239b015a3f8f09795076449d39ad54",
+                "url": "https://api.github.com/repos/iqomp/config/zipball/88586d460273301eeafff9045e785165558ec898",
+                "reference": "88586d460273301eeafff9045e785165558ec898",
                 "shasum": ""
             },
             "require": {
@@ -46,12 +46,12 @@
                     "email": "iqbalfawz@gmail.com"
                 }
             ],
-            "description": "Global application config provided by composer module",
+            "description": "Global application config provided by composer module, app, and system env",
             "support": {
                 "issues": "https://github.com/iqomp/config/issues",
-                "source": "https://github.com/iqomp/config/tree/v1.1.0"
+                "source": "https://github.com/iqomp/config/tree/v1.2.0"
             },
-            "time": "2020-11-23T23:49:06+00:00"
+            "time": "2020-11-25T00:48:59+00:00"
         }
     ],
     "packages-dev": [
@@ -123,6 +123,104 @@
                 }
             ],
             "time": "2020-11-10T18:47:58+00:00"
+        },
+        {
+            "name": "iqomp/locale",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iqomp/locale.git",
+                "reference": "2198791f99f8a67eb40122c2a07d0043544e890a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iqomp/locale/zipball/2198791f99f8a67eb40122c2a07d0043544e890a",
+                "reference": "2198791f99f8a67eb40122c2a07d0043544e890a",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^2.0",
+                "ext-gettext": "*",
+                "ext-intl": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9",
+                "squizlabs/php_codesniffer": "3.*"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Iqomp\\Locale\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Iqomp\\Locale\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Iqbal Fauzi",
+                    "email": "iqbalfawz@gmail.com"
+                }
+            ],
+            "description": "Simple module text translation",
+            "support": {
+                "issues": "https://github.com/iqomp/locale/issues",
+                "source": "https://github.com/iqomp/locale/tree/v1.0.1"
+            },
+            "time": "2020-12-01T04:30:38+00:00"
+        },
+        {
+            "name": "iqomp/validator",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iqomp/validator.git",
+                "reference": "05d86302b6315e214d4b5401290deb8fe67327b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iqomp/validator/zipball/05d86302b6315e214d4b5401290deb8fe67327b1",
+                "reference": "05d86302b6315e214d4b5401290deb8fe67327b1",
+                "shasum": ""
+            },
+            "require": {
+                "iqomp/config": "^1.2",
+                "iqomp/locale": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.4",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "type": "library",
+            "extra": {
+                "iqomp/config": "iqomp/config/",
+                "iqomp/locale": "iqomp/locale/"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Iqomp\\Validator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Iqbal Fauzi",
+                    "email": "iqbalfawz@gmail.com"
+                }
+            ],
+            "description": "Simple and easy form/object validator",
+            "support": {
+                "issues": "https://github.com/iqomp/validator/issues",
+                "source": "https://github.com/iqomp/validator/tree/v1.0.0"
+            },
+            "time": "2020-12-02T04:28:53+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -300,16 +398,16 @@
         },
         {
             "name": "phar-io/version",
-            "version": "3.0.2",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/version.git",
-                "reference": "c6bb6825def89e0a32220f88337f8ceaf1975fa0"
+                "reference": "726c026815142e4f8677b7cb7f2249c9ffb7ecae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/version/zipball/c6bb6825def89e0a32220f88337f8ceaf1975fa0",
-                "reference": "c6bb6825def89e0a32220f88337f8ceaf1975fa0",
+                "url": "https://api.github.com/repos/phar-io/version/zipball/726c026815142e4f8677b7cb7f2249c9ffb7ecae",
+                "reference": "726c026815142e4f8677b7cb7f2249c9ffb7ecae",
                 "shasum": ""
             },
             "require": {
@@ -345,9 +443,9 @@
             "description": "Library for handling version information and constraints",
             "support": {
                 "issues": "https://github.com/phar-io/version/issues",
-                "source": "https://github.com/phar-io/version/tree/master"
+                "source": "https://github.com/phar-io/version/tree/3.0.3"
             },
-            "time": "2020-06-27T14:39:04+00:00"
+            "time": "2020-11-30T09:21:21+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -576,16 +674,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.3",
+            "version": "9.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "6b20e2055f7c29b56cb3870b3de7cc463d7add41"
+                "reference": "f3e026641cc91909d421802dd3ac7827ebfd97e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/6b20e2055f7c29b56cb3870b3de7cc463d7add41",
-                "reference": "6b20e2055f7c29b56cb3870b3de7cc463d7add41",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/f3e026641cc91909d421802dd3ac7827ebfd97e1",
+                "reference": "f3e026641cc91909d421802dd3ac7827ebfd97e1",
                 "shasum": ""
             },
             "require": {
@@ -599,7 +697,7 @@
                 "sebastian/code-unit-reverse-lookup": "^2.0.2",
                 "sebastian/complexity": "^2.0",
                 "sebastian/environment": "^5.1.2",
-                "sebastian/lines-of-code": "^1.0",
+                "sebastian/lines-of-code": "^1.0.3",
                 "sebastian/version": "^3.0.1",
                 "theseer/tokenizer": "^1.2.0"
             },
@@ -641,7 +739,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.3"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.5"
             },
             "funding": [
                 {
@@ -649,7 +747,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-10-30T10:46:41+00:00"
+            "time": "2020-11-28T06:44:49+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -894,16 +992,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.4.3",
+            "version": "9.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "9fa359ff5ddaa5eb2be2bedb08a6a5787a5807ab"
+                "reference": "6535e637961f0829832621dc1b7308c2d24a799e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9fa359ff5ddaa5eb2be2bedb08a6a5787a5807ab",
-                "reference": "9fa359ff5ddaa5eb2be2bedb08a6a5787a5807ab",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6535e637961f0829832621dc1b7308c2d24a799e",
+                "reference": "6535e637961f0829832621dc1b7308c2d24a799e",
                 "shasum": ""
             },
             "require": {
@@ -981,7 +1079,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.4.3"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.4.4"
             },
             "funding": [
                 {
@@ -993,7 +1091,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-11-10T12:53:30+00:00"
+            "time": "2020-12-01T04:58:47+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -1565,16 +1663,16 @@
         },
         {
             "name": "sebastian/lines-of-code",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/lines-of-code.git",
-                "reference": "acf76492a65401babcf5283296fa510782783a7a"
+                "reference": "c1c2e997aa3146983ed888ad08b15470a2e22ecc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/lines-of-code/zipball/acf76492a65401babcf5283296fa510782783a7a",
-                "reference": "acf76492a65401babcf5283296fa510782783a7a",
+                "url": "https://api.github.com/repos/sebastianbergmann/lines-of-code/zipball/c1c2e997aa3146983ed888ad08b15470a2e22ecc",
+                "reference": "c1c2e997aa3146983ed888ad08b15470a2e22ecc",
                 "shasum": ""
             },
             "require": {
@@ -1610,7 +1708,7 @@
             "homepage": "https://github.com/sebastianbergmann/lines-of-code",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/lines-of-code/issues",
-                "source": "https://github.com/sebastianbergmann/lines-of-code/tree/1.0.2"
+                "source": "https://github.com/sebastianbergmann/lines-of-code/tree/1.0.3"
             },
             "funding": [
                 {
@@ -1618,7 +1716,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-10-26T17:03:56+00:00"
+            "time": "2020-11-28T06:42:11+00:00"
         },
         {
             "name": "sebastian/object-enumerator",

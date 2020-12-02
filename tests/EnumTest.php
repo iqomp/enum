@@ -6,11 +6,14 @@ namespace Iqomp\Tests;
 use PHPUnit\Framework\TestCase;
 use Iqomp\Enum\Enum;
 use Iqomp\Config\Fetcher;
+use Iqomp\Enum\EnumNotFoundException;
 
 final class EnumTest extends TestCase
 {
-    public static function setUpBeforeClass(): void{
-        Fetcher::addFile(dirname(__DIR__) . '/iqomp/config/enum.php');
+    public function testEnumNotFound(): void
+    {
+        $this->expectException(EnumNotFoundException::class);
+        $enum = new Enum('not', '1');
     }
 
     public function testValue(): void{

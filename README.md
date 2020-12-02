@@ -126,7 +126,25 @@ Run below script to run psr-12 linter:
 composer lint
 ```
 
+## Form Validator
+
+If you're using validator [iqomp/validator](https://github.com/iqomp/validator/)
+for your object or form validator, this module add new form validator rule named
+`enum` to validate if user provided data is in registered enum.
+
+### enum => name
+
+Make sure user provided value is in registered enum, the value of user posted data
+can be single int/str or array of it.
+
+```php
+    // ...
+    'rules' => [
+        'enum' => 'gender'
+    ]
+    // ...
+```
+
 ## TODO
 
-1. Form Validator
 1. Formatter
