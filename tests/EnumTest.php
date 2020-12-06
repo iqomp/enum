@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Iqomp\Tests;
+namespace Iqomp\Enum\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Iqomp\Enum\Enum;
@@ -17,32 +17,32 @@ final class EnumTest extends TestCase
     }
 
     public function testValue(): void{
-        $enum = new Enum('gender', '1');
+        $enum = new Enum('std-gender', '1');
         $this->assertEquals('1', $enum->value);
     }
 
     public function testValueStr(): void{
-        $enum = new Enum('gender', 1, 'str');
+        $enum = new Enum('std-gender', 1, 'str');
         $this->assertIsString($enum->value);
     }
 
     public function testValueInt(): void{
-        $enum = new Enum('gender', '1', 'int');
+        $enum = new Enum('std-gender', '1', 'int');
         $this->assertIsInt($enum->value);
     }
 
     public function testLabel(): void{
-        $enum = new Enum('gender', '1');
+        $enum = new Enum('std-gender', '1');
         $this->assertEquals('Male', $enum->label);
     }
 
     public function testLabelToString(): void{
-        $enum = new Enum('gender', '1');
+        $enum = new Enum('std-gender', '1');
         $this->assertEquals('Male', (string)$enum);
     }
 
     public function testJsonString(): void{
-        $enum = new Enum('gender', '1', 'int');
+        $enum = new Enum('std-gender', '1', 'int');
         $this->assertJsonStringEqualsJsonString(
             json_encode($enum),
             json_encode(['label'=>'Male','value'=>1])

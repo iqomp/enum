@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Iqomp\Tests;
+namespace Iqomp\Enum\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Iqomp\Validator\Validator;
@@ -46,7 +46,7 @@ final class ValidatorTest extends TestCase
         $rules = [
             'gender' => [
                 'rules' => [
-                    'enum' => 'gender'
+                    'enum' => 'std-gender'
                 ]
             ]
         ];
@@ -62,7 +62,7 @@ final class ValidatorTest extends TestCase
         $rules = [
             'gender' => [
                 'rules' => [
-                    'enum' => 'gender'
+                    'enum' => 'std-gender'
                 ]
             ]
         ];
@@ -80,7 +80,7 @@ final class ValidatorTest extends TestCase
         $rules = [
             'gender' => [
                 'rules' => [
-                    'enum' => 'gender'
+                    'enum' => 'std-gender'
                 ]
             ]
         ];
@@ -96,7 +96,7 @@ final class ValidatorTest extends TestCase
         $rules = [
             'gender' => [
                 'rules' => [
-                    'enum' => 'gender'
+                    'enum' => 'std-gender'
                 ]
             ]
         ];
@@ -115,7 +115,7 @@ final class ValidatorTest extends TestCase
         $rules = [
             'gender' => [
                 'rules' => [
-                    'enum' => 'gender'
+                    'enum' => 'std-gender'
                 ]
             ]
         ];
@@ -133,7 +133,7 @@ final class ValidatorTest extends TestCase
         $rules = [
             'gender' => [
                 'rules' => [
-                    'enum' => 'gender'
+                    'enum' => 'std-gender'
                 ]
             ]
         ];

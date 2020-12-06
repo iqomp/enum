@@ -24,8 +24,9 @@ class Validator
         }
 
         if (!is_array($val)) {
-            if (array_key_exists($val, $enum))
+            if (array_key_exists($val, $enum)) {
                 return null;
+            }
             return ['22.1'];
         }
 

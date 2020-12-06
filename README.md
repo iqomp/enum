@@ -79,7 +79,7 @@ Use class `Iqomp\Enum\Enum` to create enum object with specified value.
 use Iqomp\Enum\Enum;
 
 // $enum = new Enum('gender', '1', 'int');
-$enum = new Enum('gender', '2', 'str');
+$enum = new Enum('std-gender', '2', 'str');
 
 $enum->value;
 $enum->options;
@@ -110,6 +110,25 @@ Return string enum label.
 
 Convert the enum to json_encode ready parameter.
 
+## Form Validator
+
+If you're using validator [iqomp/validator](https://github.com/iqomp/validator/)
+for your object or form validator, this module add new form validator rule named
+`enum` to validate if user provided data is in registered enum.
+
+### enum => name
+
+Make sure user provided value is in registered enum, the value of user posted data
+can be single int/str or array of it.
+
+```php
+    // ...
+    'rules' => [
+        'enum' => 'std-gender'
+    ]
+    // ...
+```
+
 ## Unit Test
 
 Run below script to run unit test:
@@ -126,25 +145,42 @@ Run below script to run psr-12 linter:
 composer lint
 ```
 
-## Form Validator
+## Formatter
 
-If you're using validator [iqomp/validator](https://github.com/iqomp/validator/)
-for your object or form validator, this module add new form validator rule named
-`enum` to validate if user provided data is in registered enum.
+If you're using formatter [iqomp/formatter](https://github.com/iqomp/formatter/)
+for your object formatter, this module add new object format type named `enum`
+and `multiple-enum` that can be use to convert object property value to enum
+object.
 
-### enum => name
+### enum
 
-Make sure user provided value is in registered enum, the value of user posted data
-can be single int/str or array of it.
+Convert current object property value to `Iqomp\Enum\Enum` object.
+
 
 ```php
     // ...
-    'rules' => [
-        'enum' => 'gender'
+    '/field/' => [
+        'type' => 'enum',
+        'enum' => 'std-gender'
     ]
     // ...
 ```
 
-## TODO
+### multiple-enum
 
-1. Formatter
+Convert current object property value to array of `Iqomp\Enum\Enum` with custom
+separator:
+
+```php
+    // ...
+    '/field/' => [
+        'type' => 'multiple-enum',
+        'enum' => 'std-gender',
+        'separator' => ',' // PHP_EOL, 'json'
+    ]
+    // ...
+```
+
+If property `separator` is not set, `PHP_EOL` will be used. It also accept
+separator `'json'` that will use `json_decode` for separation. If the value of
+object property is already array, no separation/explode will used.
