@@ -1,7 +1,7 @@
 # iqomp/enum
 
 Static data enum provider. This module provide list of enums that may used by
-application. This module use `iqomp/config` to collect all application enum data
+application.
 
 ## Installation
 
@@ -9,10 +9,16 @@ application. This module use `iqomp/config` to collect all application enum data
 composer require iqomp/enum
 ```
 
+## Publishing Config
+
+```bash
+php bin/hyperf.php vendor:publish iqomp/enum
+```
+
 ## Configuration
 
-To add new enum data or modify exists one, create new file under folder `iqomp/config`
-with name `enum.php` with content as below inside of module main directory:
+To add new enum data or modify exists one, modify file on
+`/config/autoload/enum.php` to return data as below:
 
 ```php
 <?php
@@ -29,12 +35,28 @@ return [
 ];
 ```
 
-Register the config directory on your module `composer.json` file as below:
+Or if you prefer to use file `ConfigProvider.php`, add data as below:
 
-```json
+```php
+<?php
+
+// ...
+class ConfigProvider
 {
-    "extra": {
-        "iqomp/config": "iqomp/config/"
+    public function __invoke()
+    {
+        return [
+            'enum' => [
+                'enums' => [
+                    'gender' => [
+                        '0' => 'Unknown',
+                        '1' => 'Male',
+                        '2' => 'Female',
+                        '3' => 'Non-Binary'
+                    ]
+                ]
+            ]
+        ];
     }
 }
 ```
@@ -42,24 +64,12 @@ Register the config directory on your module `composer.json` file as below:
 ## Translation
 
 If you want the enum label to be translated, make sure to install module
-[iqomp/locale](https://github.com/iqomp/locale). Add new translation on your
-module directory with domain `enum.[enum-name]`. Register the translation in
-your `composer.json` file as below:
-
-```json
-{
-    "extra": {
-        "iqomp/locale": "locale/"
-    }
-}
-```
-
-And create translation domain with name `enum.[enum-name].php` under folder
-`locale/`:
+[hyperf/translation](https://github.com/hyperf/translation). Add new translation
+on folder `storage/languages/vendor/enum/{locale}/{enum-name}.php`.
 
 ```php
 <?php
-// enum.gender.php
+// gender.php
 
 return [
     'Unknown'    => 'Unknown',
@@ -127,14 +137,6 @@ can be single int/str or array of it.
         'enum' => 'std-gender'
     ]
     // ...
-```
-
-## Unit Test
-
-Run below script to run unit test:
-
-```bash
-composer test
 ```
 
 ## Linter

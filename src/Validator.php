@@ -3,7 +3,7 @@
 /**
  * Validator rule
  * @package iqomp/enum
- * @version 1.2.0
+ * @version 2.0.0
  */
 
 namespace Iqomp\Enum;
@@ -18,7 +18,7 @@ class Validator
             return null;
         }
 
-        $enum = Config::get('enum', 'enums', $opt);
+        $enum = config('enum.enums.' . $opt);
         if (!$enum) {
             return ['22.0'];
         }

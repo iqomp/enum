@@ -3,19 +3,18 @@
     "description": "Static enum provider",
     "type": "library",
     "license": "MIT",
-    "version": "1.3.0",
+    "version": "2.0.0",
     "authors": [
         {
             "name": "Iqbal Fauzi",
             "email": "iqbalfawz@gmail.com"
         }
     ],
-    "require": {
-        "iqomp/config": "^1.1"
-    },
+    "require": {},
     "extra": {
-        "iqomp/config": "iqomp/config/",
-        "iqomp/locale": "iqomp/locale/"
+        "hyperf": {
+            "config": "Iqomp\\Enum\\ConfigProvider"
+        }
     },
     "autoload": {
         "psr-4": {
@@ -23,16 +22,14 @@
         }
     },
     "require-dev": {
-        "iqomp/validator": "^1.0",
-        "iqomp/formatter": "^1.0",
-        "phpunit/phpunit": "^9",
         "squizlabs/php_codesniffer": "3.*"
     },
     "scripts": {
-        "test": "./vendor/bin/phpunit tests",
         "lint": "./vendor/bin/phpcs --standard=PSR12 src"
     },
     "suggest": {
-        "iqomp/locale": "Allow enum to be translated to id-ID or en-US"
+        "hyperf/translation": "Allow enum to be translated to id-ID or en-US",
+        "iqomp/validator": "Form validation for enum rule",
+        "iqomp/formatter": "Object formatter for format type enum and multiple-enum"
     }
 }

@@ -2,14 +2,14 @@
 
 /**
  * Enum object
- * @package iqcomp/enum
- * @version 1.2.0
+ * @package iqomp/enum
+ * @version 2.0.0
  */
 
 namespace Iqomp\Enum;
 
-use Iqomp\Config\Fetcher as Config;
-use Iqomp\Locale\Locale;
+use Hyperf\Utils\ApplicationContext;
+use Hyperf\Contract\TranslatorInterface;
 
 class Enum implements \JsonSerializable
 {
@@ -19,7 +19,7 @@ class Enum implements \JsonSerializable
 
     public function __construct(string $name, $value = null, string $type = null)
     {
-        $options = Config::get('enum', 'enums', $name);
+        $options = config('enum.enums.' . $name);
 
         if (!$options) {
             throw new EnumNotFoundException('Selected enum not found');
@@ -42,10 +42,17 @@ class Enum implements \JsonSerializable
         }
 
         $this->value = $value;
-        $this->label = $options[$value] ?? null;
+        $this->label = $options[$value] ?? 'unknown';
 
-        if ($this->label && class_exists('Iqomp\\Locale\\Locale')) {
-            $this->label = Locale::translate($this->label, [], 'enum.' . $name);
+        if (function_exists('trans')) {
+            $translator = ApplicationContext::getContainer()->get(TranslatorInterface::class);
+            $translator->addNamespace('enum', 'enum');
+            $trans_key = vsprintf('%s::%s.%s', ['enum', $name, $this->label]);
+            $label = trans($trans_key);
+
+            if ($trans_key != $label) {
+                $this->label = $label;
+            }
         }
     }
 
