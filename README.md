@@ -61,6 +61,16 @@ class ConfigProvider
 }
 ```
 
+Make sure to update your `composer.json` file to let hyperf identify the config file:
+
+```json
+    "extra": {
+        "hyperf": {
+            "config": "Vendor\\Module\\ConfigProvider"
+        }
+    }
+```
+
 ## Translation
 
 If you want the enum label to be translated, make sure to install module
