@@ -3,7 +3,7 @@
 /**
  * iqomp/enum configs
  * @package iqomp/enum
- * @version 2.0.1
+ * @version 2.0.2
  */
 
 namespace Iqomp\Enum;
@@ -82,15 +82,13 @@ class ConfigProvider
                 ]
             ],
             'validator' => [
-                [
-                    'errors' => [
-                        '22.0' => 'options not found',
-                        '22.1' => 'selected value is not in options',
-                        '22.2' => 'one or more selected value is not in options'
-                    ],
-                    'validators' => [
-                        'enum' => 'Iqomp\\Enum\\Validator::enum'
-                    ]
+                'errors' => [
+                    '22.0' => 'options not found',
+                    '22.1' => 'selected value is not in options',
+                    '22.2' => 'one or more selected value is not in options'
+                ],
+                'validators' => [
+                    'enum' => 'Iqomp\\Enum\\Validator::enum'
                 ]
             ],
 
