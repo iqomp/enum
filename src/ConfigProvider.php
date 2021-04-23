@@ -3,15 +3,61 @@
 /**
  * iqomp/enum configs
  * @package iqomp/enum
- * @version 2.0.0
+ * @version 2.0.1
  */
 
 namespace Iqomp\Enum;
 
 class ConfigProvider
 {
+    protected function getPublishedFiles(): array
+    {
+        $base = dirname(__DIR__) . '/publish';
+        $files = $this->scanDir($base, '/');
+        $result = [];
+
+        foreach ($files as $file) {
+            $source = $base . $file;
+            $target = BASE_PATH . $file;
+
+            $result[] = [
+                'id' => $file,
+                'description' => 'Publish file of ' . $file,
+                'source' => $source,
+                'destination' => $target
+            ];
+        }
+
+        return $result;
+    }
+
+    protected function scanDir(string $base, string $path): array
+    {
+        $base_path = chop($base . $path, '/');
+        $files = array_diff(scandir($base_path), ['.', '..']);
+        $result = [];
+
+        foreach ($files as $file) {
+            $file_path = trim($path . '/' . $file, '/');
+            $file_base = $base_path . '/' . $file;
+
+            if (is_dir($file_base)) {
+                $sub_files = $this->scanDir($base, '/' . $file_path);
+                if ($sub_files) {
+                    $result = array_merge($result, $sub_files);
+                }
+            } else {
+                $result[] = '/' . $file_path;
+            }
+        }
+
+        return $result;
+    }
+
     public function __invoke()
     {
+        $publish = $this->getPublishedFiles();
+
         return [
             'enum' => [
                 'enums' => [
@@ -48,20 +94,7 @@ class ConfigProvider
                 ]
             ],
 
-            'publish' => [
-                [
-                    'id' => 'iqomp/enum.config',
-                    'description' => 'The config for iqomp/enum.',
-                    'source' => __DIR__ . '/../publish/config/enum.php',
-                    'destination' => BASE_PATH . '/config/autoload/enum.php',
-                ],
-                [
-                    'id' => 'iqomp/enum.locale',
-                    'description' => 'The locales for iqomp/enum.',
-                    'source' => __DIR__ . '/../publish/languages',
-                    'destination' => BASE_PATH . '/storage/languages/vendor/',
-                ]
-            ]
+            'publish' => $publish
         ];
     }
 }
